@@ -3,6 +3,7 @@ package chess;
 import javax.swing.*;
 import java.awt.*;
 
+
 class Board {
     private JPanel square[][] = new JPanel[8][8];
 
@@ -23,8 +24,6 @@ class Board {
                 frame.add(square[i][j]);
             }
         }
-        square[0][0].add(new JLabel(new ImageIcon("file/Rook White.png")));
-        square[7][7].add(new JLabel(new ImageIcon("file/Rook Black.png")));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
