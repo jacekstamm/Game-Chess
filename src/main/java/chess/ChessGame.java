@@ -34,7 +34,7 @@ public class ChessGame extends Application {
         Pawns pawns = new Pawns();
         GridPane pawnsOnBoard = pawns.pawnsDisplay();
 
-        grid.getChildren().setAll(chessBoard);
+        grid.getChildren().setAll(chessBoard, pawnsOnBoard);
 
         Scene scene = new Scene(grid, 1300, 800, Color.BLACK);
 

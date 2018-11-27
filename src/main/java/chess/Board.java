@@ -1,11 +1,12 @@
 package chess;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 class Board {
-
-    private GridPane chessBoardPane = new GridPane();
+    public GridPane chessBoardPane = new GridPane();
 
     public GridPane chessBoardDisplay() {
 
@@ -22,6 +23,10 @@ class Board {
                 }
             }
         }
+        return chessBoardPane;
+    }
+
+    public GridPane getChessBoardPane() {
         return chessBoardPane;
     }
 }
