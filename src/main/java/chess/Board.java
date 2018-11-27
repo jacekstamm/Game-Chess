@@ -12,13 +12,13 @@ class Board {
         for(int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
                 if ((x + y) % 2 != 0) {
-                    ImageView darkA = new ImageView("file/BrownDark.png");
-                    GridPane.setConstraints(darkA, x, y);
-                    chessBoardPane.getChildren().add(darkA);
+                    ImageView darkSquare = new ImageView("file/BrownDark.png");
+                    GridPane.setConstraints(darkSquare, x, y);
+                    chessBoardPane.getChildren().add(darkSquare);
                 } else {
-                    ImageView lightA = new ImageView("file/BrownLight.png");
-                    GridPane.setConstraints(lightA, x, y);
-                    chessBoardPane.getChildren().add(lightA);
+                    ImageView lightSquare = new ImageView("file/BrownLight.png");
+                    GridPane.setConstraints(lightSquare, x, y);
+                    chessBoardPane.getChildren().add(lightSquare);
                 }
             }
         }
