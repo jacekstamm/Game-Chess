@@ -29,9 +29,12 @@ public class ChessGame extends Application {
         //Board display on background
         Board board = new Board();
         GridPane chessBoard = board.chessBoardDisplay();
+
+        //Pawns display on board
+        Pawns pawns = new Pawns();
+        GridPane pawnsOnBoard = pawns.pawnsDisplay();
+
         grid.getChildren().setAll(chessBoard);
-
-
 
         Scene scene = new Scene(grid, 1300, 800, Color.BLACK);
 
