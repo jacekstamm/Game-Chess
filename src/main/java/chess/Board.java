@@ -1,9 +1,7 @@
 package chess;
 
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 
 class Board {
     public GridPane chessBoardPane = new GridPane();
@@ -11,7 +9,7 @@ class Board {
     public GridPane chessBoardDisplay() {
 
         for(int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
+            for(int y = 0; y < 8; y++) {
                 if ((x + y) % 2 != 0) {
                     ImageView darkSquare = new ImageView("file/BrownDark.png");
                     GridPane.setConstraints(darkSquare, x, y);
@@ -29,4 +27,5 @@ class Board {
     public GridPane getChessBoardPane() {
         return chessBoardPane;
     }
+
 }

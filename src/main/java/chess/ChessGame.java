@@ -31,15 +31,16 @@ public class ChessGame extends Application {
         GridPane chessBoard = board.chessBoardDisplay();
 
         //Pawns display on board
-        Pawns pawns = new Pawns();
-        GridPane pawnsOnBoard = pawns.pawnsDisplay();
+        PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
+        GridPane pieces = pawnsAndFigure.pawnsAndFigureDisplay();
 
-        grid.getChildren().setAll(chessBoard, pawnsOnBoard);
+        grid.getChildren().setAll(chessBoard, pieces);
 
         Scene scene = new Scene(grid, 1300, 800, Color.BLACK);
 
         primaryStage.setTitle("Chess");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
