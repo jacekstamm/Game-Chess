@@ -27,5 +27,4 @@ class Board {
     public GridPane getChessBoardPane() {
         return chessBoardPane;
     }
-
 }

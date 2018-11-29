@@ -30,7 +30,7 @@ public class ChessGame extends Application {
         Board board = new Board();
         GridPane chessBoard = board.chessBoardDisplay();
 
-        //Pawns display on board
+        //Pawns and Figures display on board
         PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
         GridPane pieces = pawnsAndFigure.pawnsAndFigureDisplay();
 
