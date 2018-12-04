@@ -6,10 +6,7 @@ import javafx.scene.layout.GridPane;
 class Board {
     public GridPane chessBoardPane = new GridPane();
 
-
     public GridPane chessBoardDisplay(ImageView[][] boardStatus) {
-
-
 
         for(int x = 0; x < 8; x++) {
             for(int y = 0; y < 8; y++) {
@@ -22,11 +19,19 @@ class Board {
                     GridPane.setConstraints(lightSquare, x, y);
                     chessBoardPane.getChildren().add(lightSquare);
                 }
-                PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
-                pawnsAndFigure.getBoardStatus();
-                GridPane.setConstraints(boardStatus[8][8], x, y);
-                chessBoardPane.getChildren().add(boardStatus[x][y]);
             }
+            //Black Figures
+            GridPane.setConstraints(boardStatus[0][x], x, 0);
+            chessBoardPane.getChildren().add(boardStatus[0][x]);
+            //Black Pawns
+            GridPane.setConstraints(boardStatus[1][x], x, 1);
+            chessBoardPane.getChildren().add(boardStatus[1][x]);
+            //White Pawns
+            GridPane.setConstraints(boardStatus[6][x], x, 6);
+            chessBoardPane.getChildren().add(boardStatus[6][x]);
+            //White Figures
+            GridPane.setConstraints(boardStatus[7][x], x, 7);
+            chessBoardPane.getChildren().add(boardStatus[7][x]);
         }
         return chessBoardPane;
     }

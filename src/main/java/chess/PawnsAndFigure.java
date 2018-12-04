@@ -5,6 +5,10 @@ import javafx.scene.image.ImageView;
 public class PawnsAndFigure {
     private ImageView[][] boardStatus = new ImageView[8][8];
 
+    public PawnsAndFigure() {
+        pawnsAndFiguresDisplay();
+    }
+
     public void pawnsAndFiguresDisplay() {
 
         boardStatus[0][0] = new ImageView("file/Rook Black.png");
@@ -34,10 +38,6 @@ public class PawnsAndFigure {
         boardStatus[7][5] = new ImageView("file/Bishop White.png");
         boardStatus[7][6] = new ImageView("file/Knight White.png");
         boardStatus[7][7] = new ImageView("file/Rook White.png");
-
-        Board board = new Board();
-        board.chessBoardDisplay(boardStatus);
-        board.getChessBoardPane().getChildren().addAll(boardStatus[8][8]);
     }
 
     public ImageView[][] getBoardStatus() {

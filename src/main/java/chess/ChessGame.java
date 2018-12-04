@@ -31,9 +31,6 @@ public class ChessGame extends Application {
         PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
         GridPane chessBoard = board.chessBoardDisplay(pawnsAndFigure.getBoardStatus());
 
-        //Pawns and Figures display on board
-
-
         grid.getChildren().setAll(chessBoard);
 
         Scene scene = new Scene(grid, 1300, 800, Color.BLACK);
