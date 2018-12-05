@@ -1,10 +1,8 @@
 package chess;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
 
 class Board {
@@ -46,11 +44,10 @@ class Board {
         moveToField.setPromptText("Move to...");
         GridPane.setConstraints(moveToField, 8, 6);
 
-        Button moveButton = new Button("Move it!");
+        Button moveButton = new Button("Move");
         GridPane.setConstraints(moveButton, 8, 7);
 
         chessBoardPane.getChildren().addAll(moveFromField, moveToField, moveButton);
-
 
         return chessBoardPane;
     }
@@ -58,7 +55,5 @@ class Board {
     public GridPane getChessBoardPane() {
         return chessBoardPane;
     }
-
-
 
 }

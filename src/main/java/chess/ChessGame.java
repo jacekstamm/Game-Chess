@@ -1,11 +1,9 @@
 package chess;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -33,7 +31,11 @@ public class ChessGame extends Application {
         PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
         GridPane chessBoard = board.chessBoardDisplay(pawnsAndFigure.getBoardStatus());
 
-        grid.getChildren().setAll(chessBoard);
+        ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
+        GridPane paw = controlPawnsAndFigures.move(0,0, 2, 2);
+
+
+        grid.getChildren().setAll(chessBoard, paw);
 
         Scene scene = new Scene(grid, 1300, 800, Color.BLACK);
 
