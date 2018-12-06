@@ -32,10 +32,11 @@ public class ChessGame extends Application {
         GridPane chessBoard = board.chessBoardDisplay(pawnsAndFigure.getBoardStatus());
 
         ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
-        GridPane paw = controlPawnsAndFigures.move(0,0, 2, 2);
+        GridPane move = controlPawnsAndFigures.move(0,0,1,1);
 
 
-        grid.getChildren().setAll(chessBoard, paw);
+
+        grid.getChildren().setAll(chessBoard, move);
 
         Scene scene = new Scene(grid, 1300, 800, Color.BLACK);
 

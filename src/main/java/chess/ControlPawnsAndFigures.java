@@ -10,13 +10,15 @@ public class ControlPawnsAndFigures {
     public GridPane move(int fromX, int fromY, int toX, int toY) {
 
         GridPane moveGrid = board.getChessBoardPane();
-
         ImageView[][] moveImage = pawnsAndFigure.getBoardStatus();
-        moveImage[0][0] = new ImageView();
+        ImageView newImage = moveImage[toX][toY];
+        moveGrid.getChildren().remove(moveImage[fromX][fromY]);
+        GridPane.setConstraints(newImage, toX, toY);
+        moveGrid.getChildren().add(moveImage[toX][toY]);
 
-        GridPane.setConstraints(moveImage[0][0], toX, toY);
-        moveGrid.getChildren().add(moveImage[0][0]);
 
-        return moveGrid;
+        GridPane chessBoardMove = board.getChessBoardPane();
+
+        return chessBoardMove;
     }
 }
