@@ -1,24 +1,20 @@
 package chess;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class ControlPawnsAndFigures {
     private Board board = new Board();
-    private PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
+    private GridPane moveGrid = board.getChessBoardPane();
 
-    public GridPane move(int fromX, int fromY, int toX, int toY) {
+    public Figure[][] move(Figure[][] boardStatus, Integer fromX, Integer fromY, Integer toX, Integer toY) {
+        Figure movedFigure = boardStatus[fromX][fromY];
+        boardStatus[fromX][fromY] = null;
+        boardStatus[toX][toY] = movedFigure;
 
-        GridPane moveGrid = board.getChessBoardPane();
-        ImageView[][] moveImage = pawnsAndFigure.getBoardStatus();
-        ImageView newImage = moveImage[toX][toY];
-        moveGrid.getChildren().remove(moveImage[fromX][fromY]);
-        GridPane.setConstraints(newImage, toX, toY);
-        moveGrid.getChildren().add(moveImage[toX][toY]);
+        return  boardStatus;
+    }
 
-
-        GridPane chessBoardMove = board.getChessBoardPane();
-
-        return chessBoardMove;
+    public GridPane getMoveGrid() {
+        return moveGrid;
     }
 }

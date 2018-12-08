@@ -8,7 +8,7 @@ import javafx.scene.layout.GridPane;
 class Board {
     public GridPane chessBoardPane = new GridPane();
 
-    public GridPane chessBoardDisplay(ImageView[][] boardStatus) {
+    public GridPane chessBoardDisplay(Figure[][] boardStatus) {
 
         for(int x = 0; x < 8; x++) {
             for(int y = 0; y < 8; y++) {
@@ -23,17 +23,17 @@ class Board {
                 }
             }
             //Black Figures
-            GridPane.setConstraints(boardStatus[0][x], x, 0);
-            chessBoardPane.getChildren().add(boardStatus[0][x]);
+            GridPane.setConstraints(boardStatus[0][x].getImage(), x, 0);
+            chessBoardPane.getChildren().add(boardStatus[0][x].getImage());
             //Black Pawns
-            GridPane.setConstraints(boardStatus[1][x], x, 1);
-            chessBoardPane.getChildren().add(boardStatus[1][x]);
+            GridPane.setConstraints(boardStatus[1][x].getImage(), x, 1);
+            chessBoardPane.getChildren().add(boardStatus[1][x].getImage());
             //White Pawns
-            GridPane.setConstraints(boardStatus[6][x], x, 6);
-            chessBoardPane.getChildren().add(boardStatus[6][x]);
+            GridPane.setConstraints(boardStatus[6][x].getImage(), x, 6);
+            chessBoardPane.getChildren().add(boardStatus[6][x].getImage());
             //White Figures
-            GridPane.setConstraints(boardStatus[7][x], x, 7);
-            chessBoardPane.getChildren().add(boardStatus[7][x]);
+            GridPane.setConstraints(boardStatus[7][x].getImage(), x, 7);
+            chessBoardPane.getChildren().add(boardStatus[7][x].getImage());
         }
 
         TextField moveFromField = new TextField();
@@ -48,6 +48,8 @@ class Board {
         GridPane.setConstraints(moveButton, 8, 7);
 
         chessBoardPane.getChildren().addAll(moveFromField, moveToField, moveButton);
+
+
 
         return chessBoardPane;
     }
