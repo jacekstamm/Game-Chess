@@ -36,7 +36,7 @@ public class ChessGame extends Application {
         ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
         Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 0,0,2,2);
         pawnsAndFigure.setBoardStatus(modifiedBoardStatus);
-        board.chessBoardDisplay(boardStatus);
+        board.chessBoardDisplay(modifiedBoardStatus);
 
         grid.getChildren().setAll(chessBoard);
 

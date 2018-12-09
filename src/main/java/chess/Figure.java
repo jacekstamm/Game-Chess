@@ -19,12 +19,4 @@ public class Figure {
     public ImageView getImage() {
         return image;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setImage(ImageView image) {
-        this.image = image;
-    }
 }
