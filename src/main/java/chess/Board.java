@@ -9,7 +9,7 @@ class Board {
     public GridPane chessBoardPane = new GridPane();
 
     public GridPane chessBoardDisplay(Figure[][] boardStatus) {
-
+        chessBoardPane = new GridPane();
         for(int x = 0; x < 8; x++) {
             for(int y = 0; y < 8; y++) {
                 if ((x + y) % 2 != 0) {
@@ -22,6 +22,8 @@ class Board {
                     chessBoardPane.getChildren().add(lightSquare);
                 }
             }
+        }
+        for (int x = 0; x < 8; x++) {
             //Black Figures
             GridPane.setConstraints(boardStatus[0][x].getImage(), x, 0);
             chessBoardPane.getChildren().add(boardStatus[0][x].getImage());
@@ -48,8 +50,6 @@ class Board {
         GridPane.setConstraints(moveButton, 8, 7);
 
         chessBoardPane.getChildren().addAll(moveFromField, moveToField, moveButton);
-
-
 
         return chessBoardPane;
     }

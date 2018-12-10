@@ -33,10 +33,10 @@ public class ChessGame extends Application {
         Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
         GridPane chessBoard = board.chessBoardDisplay(boardStatus);
 
-        ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
-        Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 0,0,2,2);
-        pawnsAndFigure.setBoardStatus(modifiedBoardStatus);
-        board.chessBoardDisplay(modifiedBoardStatus);
+       ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
+       Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 2,2,4,4);
+       pawnsAndFigure.setBoardStatus(modifiedBoardStatus);
+       board.chessBoardDisplay(modifiedBoardStatus);
 
         grid.getChildren().setAll(chessBoard);
 

@@ -22,9 +22,9 @@ public class PawnsAndFigure {
         for (int x = 0; x < 8; x++) {
             boardStatus[1][x] = new Figure("Black Pawn", new ImageView("file/Pawn Black.png"));
         }
-        for (int x = 2; x < 6; x++) {
+        for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
-                boardStatus[x][y] = new Figure("null", new ImageView("file/Blank_square.svg.png"));
+                boardStatus[x][y] = new Figure("Null", new ImageView());
             }
         }
         for (int x = 0; x < 8; x++) {
