@@ -23,8 +23,8 @@ public class PawnsAndFigure {
             boardStatus[1][x] = new Figure("Black Pawn", new ImageView("file/Pawn Black.png"));
         }
         for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
-                boardStatus[x][y] = new Figure("Null", new ImageView());
+            for (int y = 2; y < 6; y++) {
+                boardStatus[y][x] = new Figure("Null", new ImageView("file/Blank_square.svg.png"));
             }
         }
         for (int x = 0; x < 8; x++) {
@@ -33,7 +33,7 @@ public class PawnsAndFigure {
         boardStatus[7][0] = new Figure("White Rook", new ImageView("file/Rook White.png"));
         boardStatus[7][1] = new Figure("White Knight", new ImageView("file/Knight White.png"));
         boardStatus[7][2] = new Figure("White Bishop", new ImageView("file/Bishop White.png"));
-        boardStatus[7][3] = new Figure("white Queen" , new ImageView("file/Queen White.png"));
+        boardStatus[7][3] = new Figure("White Queen" , new ImageView("file/Queen White.png"));
         boardStatus[7][4] = new Figure("White King", new ImageView("file/King White.png"));
         boardStatus[7][5] = new Figure("White Bishop", new ImageView("file/Bishop White.png"));
         boardStatus[7][6] = new Figure("White Knight", new ImageView("file/Knight White.png"));

@@ -9,9 +9,9 @@ class Board {
     public GridPane chessBoardPane = new GridPane();
 
     public GridPane chessBoardDisplay(Figure[][] boardStatus) {
-        chessBoardPane = new GridPane();
         for(int x = 0; x < 8; x++) {
             for(int y = 0; y < 8; y++) {
+
                 if ((x + y) % 2 != 0) {
                     ImageView darkSquare = new ImageView("file/BrownDark.png");
                     GridPane.setConstraints(darkSquare, x, y);
@@ -21,21 +21,11 @@ class Board {
                     GridPane.setConstraints(lightSquare, x, y);
                     chessBoardPane.getChildren().add(lightSquare);
                 }
+                System.out.println("X spot: " + x + " Y spot: " + y);
+                GridPane.setConstraints(boardStatus[x][y].getImage(), y, x);
+                chessBoardPane.getChildren().addAll(boardStatus[x][y].getImage());
+                System.out.println(boardStatus[x][y].getName());
             }
-        }
-        for (int x = 0; x < 8; x++) {
-            //Black Figures
-            GridPane.setConstraints(boardStatus[0][x].getImage(), x, 0);
-            chessBoardPane.getChildren().add(boardStatus[0][x].getImage());
-            //Black Pawns
-            GridPane.setConstraints(boardStatus[1][x].getImage(), x, 1);
-            chessBoardPane.getChildren().add(boardStatus[1][x].getImage());
-            //White Pawns
-            GridPane.setConstraints(boardStatus[6][x].getImage(), x, 6);
-            chessBoardPane.getChildren().add(boardStatus[6][x].getImage());
-            //White Figures
-            GridPane.setConstraints(boardStatus[7][x].getImage(), x, 7);
-            chessBoardPane.getChildren().add(boardStatus[7][x].getImage());
         }
 
         TextField moveFromField = new TextField();
@@ -53,9 +43,4 @@ class Board {
 
         return chessBoardPane;
     }
-
-    public GridPane getChessBoardPane() {
-        return chessBoardPane;
-    }
-
 }
