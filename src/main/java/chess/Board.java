@@ -48,6 +48,9 @@ class Board {
 
         Button moveButton = new Button("Move");
         moveButton.setPrefWidth(70);
+        moveButton.setOnAction(e -> {
+
+        });
         GridPane.setConstraints(moveButton, 8, 7);
 
         chessBoardPane.getChildren().addAll(fromX, fromY, toX, toY, moveButton);
