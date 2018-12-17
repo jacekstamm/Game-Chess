@@ -31,14 +31,12 @@ public class ChessGame extends Application {
         PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
 
         Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
-        GridPane chessBoard = board.chessBoardDisplay(boardStatus);
 
-        //ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
-        //Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 0,0,4,4);
-        //pawnsAndFigure.setBoardStatus(modifiedBoardStatus);
-        //board.chessBoardDisplay(modifiedBoardStatus);
+        ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
+        Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 0,0,2,2);
+        GridPane chessBoard2 = board.chessBoardDisplay(modifiedBoardStatus);
 
-        grid.getChildren().setAll(chessBoard);
+        grid.getChildren().setAll(chessBoard2.getChildren());
 
         Scene scene = new Scene(grid, 1300, 800, Color.BLACK);
 

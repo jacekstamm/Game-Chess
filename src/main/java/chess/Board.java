@@ -22,24 +22,35 @@ class Board {
                     chessBoardPane.getChildren().add(lightSquare);
                 }
                 System.out.println("X spot: " + x + " Y spot: " + y);
-                GridPane.setConstraints(boardStatus[x][y].getImage(), y, x);
-                chessBoardPane.getChildren().addAll(boardStatus[x][y].getImage());
-                System.out.println(boardStatus[x][y].getName());
+                GridPane.setConstraints(boardStatus[y][x].getImage(), x, y);
+                chessBoardPane.getChildren().addAll(boardStatus[y][x].getImage());
+                System.out.println(boardStatus[y][x].getName());
             }
         }
 
-        TextField moveFromField = new TextField();
-        moveFromField.setPromptText("Move from...");
-        GridPane.setConstraints(moveFromField, 8, 5);
+        TextField fromX = new TextField();
+        fromX.setPromptText("From X");
+        fromX.setPrefWidth(70);
+        GridPane.setConstraints(fromX, 8, 5);
+        TextField fromY = new TextField();
+        fromY.setPromptText("From Y");
+        fromY.setPrefWidth(70);
+        GridPane.setConstraints(fromY, 9, 5);
 
-        TextField moveToField = new TextField();
-        moveToField.setPromptText("Move to...");
-        GridPane.setConstraints(moveToField, 8, 6);
+        TextField toX = new TextField();
+        toX.setPromptText("To X");
+        toX.setPrefWidth(70);
+        GridPane.setConstraints(toX, 8, 6);
+        TextField toY = new TextField();
+        toY.setPromptText("To Y");
+        toY.setPrefWidth(70);
+        GridPane.setConstraints(toY, 9, 6);
 
         Button moveButton = new Button("Move");
+        moveButton.setPrefWidth(70);
         GridPane.setConstraints(moveButton, 8, 7);
 
-        chessBoardPane.getChildren().addAll(moveFromField, moveToField, moveButton);
+        chessBoardPane.getChildren().addAll(fromX, fromY, toX, toY, moveButton);
 
         return chessBoardPane;
     }
