@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class WrongMovePopUp {
+public class PopUpCoordinates {
 
     public static void display(String title, String message) {
         Stage window = new Stage();
@@ -19,7 +19,7 @@ public class WrongMovePopUp {
 
         Label label = new Label();
         label.setText(message);
-        Button closeButton = new Button("Try next move.");
+        Button closeButton = new Button("Close this window");
         closeButton.setOnAction(event -> window.close());
 
         VBox layout = new VBox(10);
@@ -28,6 +28,7 @@ public class WrongMovePopUp {
 
         Scene scene = new Scene(layout);
         window.setScene(scene);
+        window.setResizable(false);
         window.showAndWait();
 
         //Dodać do walidacji ruchów gdy ruch nie będzie zgodny z zasadami gry w szachy.

@@ -32,6 +32,7 @@ class Board {
         fromX.setPromptText("From X");
         fromX.setPrefWidth(70);
         GridPane.setConstraints(fromX, 8, 5);
+
         TextField fromY = new TextField();
         fromY.setPromptText("From Y");
         fromY.setPrefWidth(70);
@@ -41,6 +42,7 @@ class Board {
         toX.setPromptText("To X");
         toX.setPrefWidth(70);
         GridPane.setConstraints(toX, 8, 6);
+
         TextField toY = new TextField();
         toY.setPromptText("To Y");
         toY.setPrefWidth(70);
@@ -50,7 +52,9 @@ class Board {
         moveButton.setPrefWidth(70);
         moveButton.setOnAction(e -> {
 
+            PopUpCoordinates.display("User error", "Fill ALL move coordinates");
         });
+
         GridPane.setConstraints(moveButton, 8, 7);
 
         chessBoardPane.getChildren().addAll(fromX, fromY, toX, toY, moveButton);
