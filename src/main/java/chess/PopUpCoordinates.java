@@ -30,8 +30,5 @@ public class PopUpCoordinates {
         window.setScene(scene);
         window.setResizable(false);
         window.showAndWait();
-
-        //Dodać do walidacji ruchów gdy ruch nie będzie zgodny z zasadami gry w szachy.
-        //Pop Up Window z przyciskiem do dalszej gry po wyskoczeniu błędu.
     }
 }

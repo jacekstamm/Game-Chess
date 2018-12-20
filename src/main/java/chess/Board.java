@@ -6,7 +6,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 class Board {
-    public GridPane chessBoardPane = new GridPane();
+    private GridPane chessBoardPane = new GridPane();
+    private Figure[][] control;
 
     public GridPane chessBoardDisplay(Figure[][] boardStatus) {
         for(int x = 0; x < 8; x++) {
@@ -30,11 +31,13 @@ class Board {
 
         TextField fromX = new TextField();
         fromX.setPromptText("From X");
+
         fromX.setPrefWidth(70);
         GridPane.setConstraints(fromX, 8, 5);
 
         TextField fromY = new TextField();
         fromY.setPromptText("From Y");
+
         fromY.setPrefWidth(70);
         GridPane.setConstraints(fromY, 9, 5);
 
@@ -52,7 +55,19 @@ class Board {
         moveButton.setPrefWidth(70);
         moveButton.setOnAction(e -> {
 
-            PopUpCoordinates.display("User error", "Fill ALL move coordinates");
+            try {
+                int fromXInt = Integer.parseInt(fromX.getText());
+                int fromYInt = Integer.parseInt(fromY.getText());
+                int toXInt = Integer.parseInt(toX.getText());
+                int toYInt = Integer.parseInt(toY.getText());
+                ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
+                control = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);
+            } catch (ArrayIndexOutOfBoundsException a) {
+                PopUpCoordinates.display("User Error", "Use ONLY one number 0 - 7");
+            } catch (NumberFormatException n) {
+                PopUpCoordinates.display("User Error", "Don't input letters and symbols");
+            }
+
         });
 
         GridPane.setConstraints(moveButton, 8, 7);
@@ -60,5 +75,9 @@ class Board {
         chessBoardPane.getChildren().addAll(fromX, fromY, toX, toY, moveButton);
 
         return chessBoardPane;
+    }
+
+    public Figure[][] getControl() {
+        return control;
     }
 }
