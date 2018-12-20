@@ -1,13 +1,15 @@
 package chess;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 class Board {
     private GridPane chessBoardPane = new GridPane();
-    private Figure[][] control;
+    private TextField fromX = new TextField();
+    private TextField fromY = new TextField();
+    private TextField toX = new TextField();
+    private TextField toY = new TextField();
 
     public GridPane chessBoardDisplay(Figure[][] boardStatus) {
         for(int x = 0; x < 8; x++) {
@@ -29,55 +31,40 @@ class Board {
             }
         }
 
-        TextField fromX = new TextField();
         fromX.setPromptText("From X");
-
         fromX.setPrefWidth(70);
         GridPane.setConstraints(fromX, 8, 5);
 
-        TextField fromY = new TextField();
         fromY.setPromptText("From Y");
-
         fromY.setPrefWidth(70);
         GridPane.setConstraints(fromY, 9, 5);
 
-        TextField toX = new TextField();
         toX.setPromptText("To X");
         toX.setPrefWidth(70);
         GridPane.setConstraints(toX, 8, 6);
 
-        TextField toY = new TextField();
         toY.setPromptText("To Y");
         toY.setPrefWidth(70);
         GridPane.setConstraints(toY, 9, 6);
 
-        Button moveButton = new Button("Move");
-        moveButton.setPrefWidth(70);
-        moveButton.setOnAction(e -> {
-
-            try {
-                int fromXInt = Integer.parseInt(fromX.getText());
-                int fromYInt = Integer.parseInt(fromY.getText());
-                int toXInt = Integer.parseInt(toX.getText());
-                int toYInt = Integer.parseInt(toY.getText());
-                ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
-                control = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);
-            } catch (ArrayIndexOutOfBoundsException a) {
-                PopUpCoordinates.display("User Error", "Use ONLY one number 0 - 7");
-            } catch (NumberFormatException n) {
-                PopUpCoordinates.display("User Error", "Don't input letters and symbols");
-            }
-
-        });
-
-        GridPane.setConstraints(moveButton, 8, 7);
-
-        chessBoardPane.getChildren().addAll(fromX, fromY, toX, toY, moveButton);
+        chessBoardPane.getChildren().addAll(fromX, fromY, toX, toY);
 
         return chessBoardPane;
     }
 
-    public Figure[][] getControl() {
-        return control;
+    public TextField getFromX() {
+        return fromX;
+    }
+
+    public TextField getFromY() {
+        return fromY;
+    }
+
+    public TextField getToX() {
+        return toX;
+    }
+
+    public TextField getToY() {
+        return toY;
     }
 }
