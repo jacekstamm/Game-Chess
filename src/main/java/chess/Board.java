@@ -24,10 +24,9 @@ class Board {
                     GridPane.setConstraints(lightSquare, x, y);
                     chessBoardPane.getChildren().add(lightSquare);
                 }
-                System.out.println("X spot: " + x + " Y spot: " + y);
+                System.out.println("X: " + x + ", Y: " + y + " " + boardStatus[x][y].getName());
                 GridPane.setConstraints(boardStatus[y][x].getImage(), x, y);
                 chessBoardPane.getChildren().addAll(boardStatus[y][x].getImage());
-                System.out.println(boardStatus[y][x].getName());
             }
         }
 
@@ -46,7 +45,6 @@ class Board {
         toY.setPromptText("To Y");
         toY.setPrefWidth(70);
         GridPane.setConstraints(toY, 9, 6);
-
         chessBoardPane.getChildren().addAll(fromX, fromY, toX, toY);
 
         return chessBoardPane;

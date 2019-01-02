@@ -34,7 +34,7 @@ public class ChessGame extends Application {
         Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
 
         ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
-        Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 0, 0, 1, 1);
+        Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 0, 0, 0, 0);
         GridPane chessBoard2 = board.chessBoardDisplay(modifiedBoardStatus);
 
         grid.getChildren().setAll(chessBoard2.getChildren());
@@ -51,9 +51,7 @@ public class ChessGame extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
-
         moveButton.setOnAction(e -> {
-
             try {
                 int fromXInt = Integer.parseInt(board.getFromX().getText());
                 int fromYInt = Integer.parseInt(board.getFromY().getText());
@@ -69,11 +67,7 @@ public class ChessGame extends Application {
             } catch (NumberFormatException n) {
                 PopUpCoordinates.display("User Error", "Don't input letters and symbols");
             }
-
             grid.getChildren().add(moveButton);
-
-
         });
-
     }
 }
