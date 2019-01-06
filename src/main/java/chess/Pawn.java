@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 public class Pawn extends Figure {
 
     Figure figure;
+    Figure[][] figures;
 
     public Pawn(String name, ImageView image, int player) {
         super(name, image, player);

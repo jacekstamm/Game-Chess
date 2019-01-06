@@ -58,6 +58,15 @@ public class ChessGame extends Application {
                 int toXInt = Integer.parseInt(board.getToX().getText());
                 int toYInt = Integer.parseInt(board.getToY().getText());
 
+                String className = boardStatus[fromXInt][fromYInt].getName();
+                if (getClass().getName().equals(className) && className != "Null") {
+                }
+
+
+
+
+
+
                 Figure[][] modifiedBoardStatus2 = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);
                 GridPane chessBoard3 = board.chessBoardDisplay(modifiedBoardStatus2);
                 grid.getChildren().setAll(chessBoard3.getChildren());

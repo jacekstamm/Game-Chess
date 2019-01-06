@@ -10,9 +10,7 @@ public class King extends Figure {
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
+        return (toX == fromX + 1 && toY.equals(fromY)) || (toX == fromX - 1 && toY.equals(fromY)) || (toX.equals(fromX) && toY == fromY + 1) || (toX.equals(fromX) && toY == fromY - 1) || (toX == fromX + 1 && toY == fromY + 1) || (toX == fromX + 1 && toY == fromY - 1) || (toX == fromX - 1 && toY == fromY + 1) || (toX == fromX - 1 && toY == fromY - 1);
 
-
-
-        return false;
     }
 }

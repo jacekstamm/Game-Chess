@@ -10,13 +10,6 @@ public class Knight extends Figure {
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
-
-
-
-
-
-
-
-        return false;
+        return (toX == fromX + 2 && toY == fromY - 1) || (toX == fromX + 2 && toY == fromY + 1) || (toX == fromX - 2 && toY == fromY + 1) || (toX == fromX - 2 && toY == fromY - 1) || (toX == fromX + 1 && toY == fromY + 2) || (toX == fromX + 1 && toY == fromY - 2) || (toX == fromX - 1 && toY == fromY + 2) || (toX == fromX - 1 && toY == fromY - 2);
     }
 }

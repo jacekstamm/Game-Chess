@@ -9,6 +9,6 @@ public class Null extends Figure {
     }
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
-        return true;
+        return false;
     }
 }

@@ -10,15 +10,12 @@ public class Queen extends Figure {
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
-        // Poruszanie się po prostych.
-        // (fromX.equals(toX) && !fromY.equals(toY)) || (!fromX.equals(toX) && fromY.equals(toY));
+        boolean valid = false;
 
-
-
-
-
-
-
-        return false;
+        for (int x = 0; x < 8; x++) {
+            valid = (toX == (fromX + x) && toY == (fromY + x)) || (toX == (fromX - x) && toY == (fromY - x)) || (toX == (fromX + x) && toY == (fromY - x)) || (toX == (fromX - x) && toY == (fromY + x));
+            if (!valid) break;
+        }
+        return valid || (fromX.equals(toX) && !fromY.equals(toY)) || (!fromX.equals(toX) && fromY.equals(toY));
     }
 }
