@@ -2,7 +2,7 @@ package chess;
 
 import javafx.scene.image.ImageView;
 
-public class Figure {
+abstract class Figure {
 
     private String name;
     private ImageView image;
@@ -14,6 +14,8 @@ public class Figure {
         this.image = image;
         this.player = player;
     }
+
+    abstract boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY);
 
     public String getName() {
         return name;

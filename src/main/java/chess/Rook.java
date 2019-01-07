@@ -4,8 +4,6 @@ import javafx.scene.image.ImageView;
 
 public class Rook extends Figure {
 
-    Figure figure;
-
     public Rook(String name, ImageView image, int player) {
         super(name, image, player);
     }

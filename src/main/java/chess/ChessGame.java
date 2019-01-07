@@ -58,11 +58,11 @@ public class ChessGame extends Application {
                 int toXInt = Integer.parseInt(board.getToX().getText());
                 int toYInt = Integer.parseInt(board.getToY().getText());
 
-                String className = boardStatus[fromXInt][fromYInt].getName();
-                if (getClass().getName().equals(className) && className != "Null") {
-                }
+                String fromFigureName = boardStatus[fromXInt][fromYInt].getName();
+                int fromPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
+                System.out.println(fromFigureName + " : " + fromPlayer);
 
-
+                
 
 
 
