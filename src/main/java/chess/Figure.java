@@ -2,7 +2,7 @@ package chess;
 
 import javafx.scene.image.ImageView;
 
-abstract class Figure {
+public abstract class Figure {
 
     private String name;
     private ImageView image;

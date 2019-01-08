@@ -62,20 +62,21 @@ public class ChessGame extends Application {
                 int fromPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
                 System.out.println(fromFigureName + " : " + fromPlayer);
 
-                
-
-
-
-
-                Figure[][] modifiedBoardStatus2 = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);
-                GridPane chessBoard3 = board.chessBoardDisplay(modifiedBoardStatus2);
-                grid.getChildren().setAll(chessBoard3.getChildren());
+                if (boardStatus[fromXInt][fromYInt].validate(fromXInt, fromYInt, toXInt, toYInt)) {
+                    Figure[][] modifiedBoardStatus2 = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);
+                    GridPane chessBoard3 = board.chessBoardDisplay(modifiedBoardStatus2);
+                    grid.getChildren().setAll(chessBoard3.getChildren());
+                } else {
+                    PopUpCoordinates.display("User Error", "Wrong Move");
+                }
 
             } catch (ArrayIndexOutOfBoundsException a) {
                 PopUpCoordinates.display("User Error", "Use ONLY one number 0 - 7");
             } catch (NumberFormatException n) {
                 PopUpCoordinates.display("User Error", "Don't input letters and symbols");
-            }
+            } catch (IllegalArgumentException i) {
+            PopUpCoordinates.display("User Error", "Wrong Move");
+        }
             grid.getChildren().add(moveButton);
         });
     }
