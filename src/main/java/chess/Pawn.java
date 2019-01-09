@@ -5,7 +5,6 @@ import javafx.scene.image.ImageView;
 public class Pawn extends Figure {
 
     Figure figure;
-    Figure[][] figures;
 
     public Pawn(String name, ImageView image, int player) {
         super(name, image, player);
@@ -13,11 +12,13 @@ public class Pawn extends Figure {
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
+        boolean valid = false;
+
         if (figure.getPlayer() == 1) {
-            return (toX == (fromX + 1) || toX == (fromX + 2)) && toY.equals(fromY);
-        } else if (figure.getPlayer() == 2) {
-            return (toX == (fromX - 1) || toX == (fromX + 2)) && toY.equals(fromY);
+            valid = (toX == (fromX + 1) && toY.equals(fromY)) || (toX == (fromX + 2) && toY.equals(fromY));
+        } if (figure.getPlayer() == 2) {
+            valid = (toX == (fromX - 1) && toY.equals(fromY)) || (toX == (fromX - 2) && toY.equals(fromY));
         }
-        return false;
+        return valid;
     }
 }

@@ -12,9 +12,9 @@ public class Queen extends Figure {
 
         boolean valid = false;
 
-        for (int x = 0; x < 8; x++) {
+        for (int x = 1; x < 8; x++) {
             valid = (toX == (fromX + x) && toY == (fromY + x)) || (toX == (fromX - x) && toY == (fromY - x)) || (toX == (fromX + x) && toY == (fromY - x)) || (toX == (fromX - x) && toY == (fromY + x));
-            if (!valid) break;
+            if (valid) break;
         }
         return valid || (fromX.equals(toX) && !fromY.equals(toY)) || (!fromX.equals(toX) && fromY.equals(toY));
     }

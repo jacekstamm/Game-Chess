@@ -75,7 +75,7 @@ public class ChessGame extends Application {
             } catch (NumberFormatException n) {
                 PopUpCoordinates.display("User Error", "Don't input letters and symbols");
             } catch (IllegalArgumentException i) {
-            PopUpCoordinates.display("User Error", "Wrong Move");
+                PopUpCoordinates.display("User Error", "Wrong Move");
         }
             grid.getChildren().add(moveButton);
         });
