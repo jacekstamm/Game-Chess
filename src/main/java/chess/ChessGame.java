@@ -60,7 +60,7 @@ public class ChessGame extends Application {
 
                 String fromFigureName = boardStatus[fromXInt][fromYInt].getName();
                 int fromPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
-                System.out.println(fromFigureName + " : " + fromPlayer);
+                System.out.println("Player " + fromPlayer + " moved " + fromFigureName + " from: " + fromXInt + " " + fromYInt + " to: " + toXInt + " " + toYInt);
 
                 if (boardStatus[fromXInt][fromYInt].validate(fromXInt, fromYInt, toXInt, toYInt)) {
                     Figure[][] modifiedBoardStatus2 = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);

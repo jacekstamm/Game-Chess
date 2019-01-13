@@ -4,7 +4,6 @@ import javafx.scene.image.ImageView;
 
 public class Pawn extends Figure {
 
-    Figure figure;
 
     public Pawn(String name, ImageView image, int player) {
         super(name, image, player);
@@ -12,13 +11,18 @@ public class Pawn extends Figure {
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
-        boolean valid = false;
+        PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
+        final Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
 
-        if (figure.getPlayer() == 1) {
+        boolean valid = false;
+        int player = boardStatus[fromX][fromY].getPlayer();
+
+        if (player == 1) {
             valid = (toX == (fromX + 1) && toY.equals(fromY)) || (toX == (fromX + 2) && toY.equals(fromY));
-        } if (figure.getPlayer() == 2) {
+        } if (player == 2) {
             valid = (toX == (fromX - 1) && toY.equals(fromY)) || (toX == (fromX - 2) && toY.equals(fromY));
         }
+
         return valid;
     }
 }
