@@ -4,7 +4,23 @@ import javafx.scene.image.ImageView;
 
 public class ControlPawnsAndFigures {
 
+    ChessGame chessGame = new ChessGame();
+    ComputerAI computerAI = new ComputerAI();
+
+
     public Figure[][] move(Figure[][] boardStatus, Integer fromX, Integer fromY, Integer toX, Integer toY) {
+
+        if (chessGame.isPlayerWhiteMove()) {
+            if (boardStatus[fromX][fromY].getPlayer() == 2) {
+                //    ???
+            } else {
+                PopUpCoordinates.display("User Error", "No possibility of moving black pieces");
+            }
+        } else {
+            computerAI.computerMove();
+        }
+
+
 
         if ("Null" == boardStatus[toX][toY].getName()) {
             Figure movedFigure = boardStatus[fromX][fromY];

@@ -11,6 +11,12 @@ import javafx.stage.Stage;
 
 public class ChessGame extends Application {
 
+    public boolean playerWhiteMove = true;
+
+    public boolean isPlayerWhiteMove() {
+        return playerWhiteMove;
+    }
+
     private Image imageBack = new Image("file/background.png");
 
     public static void main(String[] args) {
@@ -30,6 +36,8 @@ public class ChessGame extends Application {
         //Board display on background
         Board board = new Board();
         PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
+
+
 
         Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
 
@@ -51,12 +59,14 @@ public class ChessGame extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
+
         moveButton.setOnAction(e -> {
             try {
                 int fromXInt = Integer.parseInt(board.getFromX().getText());
                 int fromYInt = Integer.parseInt(board.getFromY().getText());
                 int toXInt = Integer.parseInt(board.getToX().getText());
                 int toYInt = Integer.parseInt(board.getToY().getText());
+                int currentPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
 
                 String fromFigureName = boardStatus[fromXInt][fromYInt].getName();
                 int fromPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
