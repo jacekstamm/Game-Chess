@@ -17,6 +17,10 @@ public class ChessGame extends Application {
         return playerWhiteMove;
     }
 
+    public void setPlayerWhiteMove(boolean playerWhiteMove) {
+        this.playerWhiteMove = playerWhiteMove;
+    }
+
     private Image imageBack = new Image("file/background.png");
 
     public static void main(String[] args) {
@@ -66,7 +70,6 @@ public class ChessGame extends Application {
                 int fromYInt = Integer.parseInt(board.getFromY().getText());
                 int toXInt = Integer.parseInt(board.getToX().getText());
                 int toYInt = Integer.parseInt(board.getToY().getText());
-                int currentPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
 
                 String fromFigureName = boardStatus[fromXInt][fromYInt].getName();
                 int fromPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
@@ -87,6 +90,7 @@ public class ChessGame extends Application {
             } catch (IllegalArgumentException i) {
                 PopUpCoordinates.display("User Error", "Wrong Move");
         }
+            grid.getChildren().remove(moveButton);
             grid.getChildren().add(moveButton);
         });
     }

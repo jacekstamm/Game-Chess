@@ -10,10 +10,8 @@ public class Pawn extends Figure {
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
-        PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
-        final Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
         boolean valid = false;
-        int player = boardStatus[fromX][fromY].getPlayer();
+        int player = getPlayer();
 
         if (player == 1) {
             valid = (toX == (fromX + 1) && toY.equals(fromY)) || (toX == (fromX + 2) && toY.equals(fromY));
