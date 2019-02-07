@@ -41,12 +41,10 @@ public class ChessGame extends Application {
         Board board = new Board();
         PawnsAndFigure pawnsAndFigure = new PawnsAndFigure();
 
-
-
         Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
 
         ControlPawnsAndFigures controlPawnsAndFigures = new ControlPawnsAndFigures();
-        Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 0, 0, 0, 0);
+        Figure[][] modifiedBoardStatus = controlPawnsAndFigures.move(boardStatus, 6, 6, 6, 6);
         GridPane chessBoard2 = board.chessBoardDisplay(modifiedBoardStatus);
 
         grid.getChildren().setAll(chessBoard2.getChildren());
@@ -62,7 +60,6 @@ public class ChessGame extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
-
 
         moveButton.setOnAction(e -> {
             try {

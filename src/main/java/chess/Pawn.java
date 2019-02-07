@@ -14,10 +14,16 @@ public class Pawn extends Figure {
         int player = getPlayer();
 
         if (player == 1) {
-            valid = (toX == (fromX + 1) && toY.equals(fromY)) || (toX == (fromX + 2) && toY.equals(fromY));
+            valid = (toX == (fromX + 1) && toY.equals(fromY));
         } if (player == 2) {
-            valid = (toX == (fromX - 1) && toY.equals(fromY)) || (toX == (fromX - 2) && toY.equals(fromY));
+            valid = (toX == (fromX - 1) && toY.equals(fromY));
         }
+        return valid;
+    }
+
+    public boolean validateCollision() {
+        boolean valid = false;
+
         return valid;
     }
 }

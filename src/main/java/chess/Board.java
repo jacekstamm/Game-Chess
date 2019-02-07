@@ -26,7 +26,6 @@ class Board {
                     GridPane.setConstraints(lightSquare, x, y);
                     chessBoardPane.getChildren().add(lightSquare);
                 }
-                //System.out.println("X: " + x + ", Y: " + y + " " + boardStatus[x][y].getName());
                 GridPane.setConstraints(boardStatus[y][x].getImage(), x, y);
                 chessBoardPane.getChildren().addAll(boardStatus[y][x].getImage());
             }
