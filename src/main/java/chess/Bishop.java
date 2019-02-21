@@ -4,6 +4,8 @@ import javafx.scene.image.ImageView;
 
 public class Bishop extends Figure {
 
+    PawnsAndFigure pawnsAndFigure;
+
     public Bishop(String name, ImageView image, int player) {
         super(name, image, player);
     }
@@ -21,6 +23,19 @@ public class Bishop extends Figure {
                 if (valid) break;
             }
         }
+        return valid;
+    }
+
+    public boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY) {
+        boolean valid = false;
+        Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
+
+
+        for (int x = 1; x < 8; x++) {
+            Figure finish = boardStatus[fromX + x][fromY + x];
+
+        }
+
         return valid;
     }
 }

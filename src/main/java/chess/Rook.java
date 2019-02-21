@@ -12,4 +12,10 @@ public class Rook extends Figure {
 
         return (fromX.equals(toX) && !fromY.equals(toY)) || (!fromX.equals(toX) && fromY.equals(toY));
     }
+
+    public boolean validateCollision() {
+        boolean valid = false;
+
+        return valid;
+    }
 }

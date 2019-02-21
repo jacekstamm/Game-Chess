@@ -20,10 +20,4 @@ public class Pawn extends Figure {
         }
         return valid;
     }
-
-    public boolean validateCollision() {
-        boolean valid = false;
-
-        return valid;
-    }
 }

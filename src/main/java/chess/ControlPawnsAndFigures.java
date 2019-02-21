@@ -16,6 +16,7 @@ public class ControlPawnsAndFigures {
             }
         } else if (boardStatus[fromX][fromY].getPlayer() == 1) {
             movingFigures(boardStatus, fromX, fromY, toX, toY);
+            chessGame.setPlayerWhiteMove(true);
         } else {
             PopUpCoordinates.display("User Error!", "It's BLACK Player move. Please move black pieces only.");
         }
