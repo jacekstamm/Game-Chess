@@ -14,8 +14,7 @@ public class Rook extends Figure {
     }
 
     public boolean validateCollision() {
-        boolean valid = false;
 
-        return valid;
+        return false;
     }
 }
