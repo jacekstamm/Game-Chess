@@ -72,7 +72,7 @@ public class ChessGame extends Application {
                 int fromPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
                 System.out.println("Player " + fromPlayer + " moved " + fromFigureName + " from: " + fromXInt + " " + fromYInt + " to: " + toXInt + " " + toYInt);
 
-                if (boardStatus[fromXInt][fromYInt].validate(fromXInt, fromYInt, toXInt, toYInt)) {
+                if (boardStatus[fromXInt][fromYInt].validate(fromXInt, fromYInt, toXInt, toYInt, pawnsAndFigure.getBoardStatus())) {
                     Figure[][] modifiedBoardStatus2 = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);
                     GridPane chessBoard3 = board.chessBoardDisplay(modifiedBoardStatus2);
                     grid.getChildren().setAll(chessBoard3.getChildren());
