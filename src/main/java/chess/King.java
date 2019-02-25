@@ -8,7 +8,7 @@ public class King extends Figure {
         super(name, image, player);
     }
 
-    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
+    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
         return (toX == fromX + 1 && toY.equals(fromY)) || (toX == fromX - 1 && toY.equals(fromY)) || (toX.equals(fromX) && toY == fromY + 1) || (toX.equals(fromX) && toY == fromY - 1) || (toX == fromX + 1 && toY == fromY + 1) || (toX == fromX + 1 && toY == fromY - 1) || (toX == fromX - 1 && toY == fromY + 1) || (toX == fromX - 1 && toY == fromY - 1);
 

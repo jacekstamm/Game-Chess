@@ -4,15 +4,15 @@ import javafx.scene.image.ImageView;
 
 public class Bishop extends Figure {
 
-    PawnsAndFigure pawnsAndFigure;
+    public PawnsAndFigure pawnsAndFigure;
 
     public Bishop(String name, ImageView image, int player) {
         super(name, image, player);
     }
 
-    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
+    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
         boolean move = validateMove(fromX, fromY, toX, toY);
-        boolean collision = validateCollision(fromX, fromY, toX, toY);
+        boolean collision = validateCollision(fromX, fromY, toX, toY, pawnsAndFigure.getBoardStatus());
 
         return move && collision;
     }
@@ -33,34 +33,33 @@ public class Bishop extends Figure {
         return valid;
     }
 
-    private boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY) {
+    private boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
         boolean valid = false;
-        Figure[][] boardStatus = pawnsAndFigure.getBoardStatus();
         int differenceX = Math.abs(fromX - toX);
         int differenceY = Math.abs(fromY - toY);
 
         for (int x = 1; x < differenceX; x++) {
             for (int y = 1; y < differenceY; y++) {
                 if (fromX < toX && fromY < toY) {
-                    if (!boardStatus[fromX - x][fromY - y].getName().equals("Null")) {
+                    if (!currentBoardStatus[fromX - x][fromY - y].getName().equals("Null")) {
                         PopUpCoordinates.display("User Error", "Wrong move. Please try again");
                         break;
                     }
                 }
                 if (fromX < toX && fromY > toY) {
-                    if (!boardStatus[fromX - x][fromY + y].getName().equals("Null")) {
+                    if (!currentBoardStatus[fromX - x][fromY + y].getName().equals("Null")) {
                         PopUpCoordinates.display("User Error", "Wrong move. Please try again");
                         break;
                     }
                 }
                 if (fromX > toX && fromY < toY) {
-                    if (!boardStatus[fromX + x][fromY - y].getName().equals("Null")) {
+                    if (!currentBoardStatus[fromX + x][fromY - y].getName().equals("Null")) {
                         PopUpCoordinates.display("User Error", "Wrong move. Please try again");
                         break;
                     }
                 }
                 if (fromX > toX && fromY > toY) {
-                    if (!boardStatus[fromX + x][fromY + y].getName().equals("Null")) {
+                    if (!currentBoardStatus[fromX + x][fromY + y].getName().equals("Null")) {
                         PopUpCoordinates.display("User Error", "Wrong move. Please try again");
                         break;
                     }

@@ -8,7 +8,7 @@ public class Pawn extends Figure {
         super(name, image, player);
     }
 
-    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
+    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
 
         boolean valid = false;
         int player = getPlayer();

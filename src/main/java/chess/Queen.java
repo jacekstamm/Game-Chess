@@ -8,7 +8,7 @@ public class Queen extends Figure {
         super(name, image, player);
     }
 
-    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
+    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
         boolean valid = false;
 
         for (int x = 1; x < 8; x++) {
