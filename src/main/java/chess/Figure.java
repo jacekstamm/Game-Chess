@@ -15,7 +15,7 @@ public abstract class Figure {
         this.player = player;
     }
 
-    abstract boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY);
+    abstract boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus);
 
     public String getName() {
         return name;

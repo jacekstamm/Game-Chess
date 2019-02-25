@@ -4,15 +4,13 @@ import javafx.scene.image.ImageView;
 
 public class Bishop extends Figure {
 
-    public PawnsAndFigure pawnsAndFigure;
-
     public Bishop(String name, ImageView image, int player) {
         super(name, image, player);
     }
 
-    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
+    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
         boolean move = validateMove(fromX, fromY, toX, toY);
-        boolean collision = validateCollision(fromX, fromY, toX, toY, pawnsAndFigure.getBoardStatus());
+        boolean collision = validateCollision(fromX, fromY, toX, toY, currentBoardStatus);
 
         return move && collision;
     }

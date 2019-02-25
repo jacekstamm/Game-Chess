@@ -8,7 +8,7 @@ public class Knight extends Figure {
         super(name, image, player);
     }
 
-    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY) {
+    public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
 
         return (toX == fromX + 2 && toY == fromY - 1) || (toX == fromX + 2 && toY == fromY + 1) || (toX == fromX - 2 && toY == fromY + 1) || (toX == fromX - 2 && toY == fromY - 1) || (toX == fromX + 1 && toY == fromY + 2) || (toX == fromX + 1 && toY == fromY - 2) || (toX == fromX - 1 && toY == fromY + 2) || (toX == fromX - 1 && toY == fromY - 2);
     }
