@@ -9,6 +9,13 @@ public class Queen extends Figure {
     }
 
     public boolean validate(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
+        boolean move = validateMove(fromX, fromY, toX, toY);
+        boolean collision = validateCollision(fromX, fromY, toX, toY, currentBoardStatus);
+
+        return move && collision;
+    }
+
+    public boolean validateMove(Integer fromX, Integer fromY, Integer toX, Integer toY) {
         boolean valid = false;
 
         for (int x = 1; x < 8; x++) {
@@ -19,13 +26,8 @@ public class Queen extends Figure {
         return valid || (fromX.equals(toX) && !fromY.equals(toY)) || (!fromX.equals(toX) && fromY.equals(toY));
     }
 
-    public boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY) {
+    public boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
         boolean valid = false;
-        String name = getName();
-
-        for(int x = 0; x < 8; x++) {
-
-        }
 
         return valid;
     }

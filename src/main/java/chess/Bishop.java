@@ -34,10 +34,8 @@ public class Bishop extends Figure {
     private boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
         boolean valid = false;
         int difference = Math.abs(fromX - toX);
-        System.out.println(difference);
 
-        for (int x = 1; x < difference; x++) {
-            //tutaj jest błąd
+        for (int x = 0; x < difference; x++) {
                 if (fromX < toX && fromY < toY) {
                     if (!currentBoardStatus[fromX + x][fromY + x].getName().equals("Null")) {
                         valid = true;
@@ -56,7 +54,6 @@ public class Bishop extends Figure {
                         break;
                     }
                 }
-                //tutaj jest błąd
                 if (fromX > toX && fromY > toY) {
                     if (!currentBoardStatus[fromX - x][fromY - x].getName().equals("Null")) {
                         valid = true;
