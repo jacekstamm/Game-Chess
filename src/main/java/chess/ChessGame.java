@@ -70,12 +70,12 @@ public class ChessGame extends Application {
 
                 String fromFigureName = boardStatus[fromXInt][fromYInt].getName();
                 int fromPlayer = boardStatus[fromXInt][fromYInt].getPlayer();
-                System.out.println("Player " + fromPlayer + " moved " + fromFigureName + " from: " + fromXInt + " " + fromYInt + " to: " + toXInt + " " + toYInt);
 
                 if (boardStatus[fromXInt][fromYInt].validate(fromXInt, fromYInt, toXInt, toYInt, pawnsAndFigure.getBoardStatus())) {
                     Figure[][] modifiedBoardStatus2 = controlPawnsAndFigures.move(boardStatus, fromXInt, fromYInt, toXInt, toYInt);
                     GridPane chessBoard3 = board.chessBoardDisplay(modifiedBoardStatus2);
                     grid.getChildren().setAll(chessBoard3.getChildren());
+                    System.out.println("Player " + fromPlayer + " moved " + fromFigureName + " from: " + fromXInt + " " + fromYInt + " to: " + toXInt + " " + toYInt);
                 } else {
                     PopUpCoordinates.display("User Error", "Wrong Move");
                 }

@@ -33,37 +33,37 @@ public class Bishop extends Figure {
 
     private boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
         boolean valid = false;
-        int differenceX = Math.abs(fromX - toX);
-        int differenceY = Math.abs(fromY - toY);
+        int difference = Math.abs(fromX - toX);
+        System.out.println(difference);
 
-        for (int x = 1; x < differenceX; x++) {
-            for (int y = 1; y < differenceY; y++) {
+        for (int x = 1; x < difference; x++) {
+            //tutaj jest błąd
                 if (fromX < toX && fromY < toY) {
-                    if (!currentBoardStatus[fromX - x][fromY - y].getName().equals("Null")) {
-                        PopUpCoordinates.display("User Error", "Wrong move. Please try again");
+                    if (!currentBoardStatus[fromX + x][fromY + x].getName().equals("Null")) {
+                        valid = true;
                         break;
                     }
                 }
                 if (fromX < toX && fromY > toY) {
-                    if (!currentBoardStatus[fromX - x][fromY + y].getName().equals("Null")) {
-                        PopUpCoordinates.display("User Error", "Wrong move. Please try again");
+                    if (!currentBoardStatus[fromX + x][fromY - x].getName().equals("Null")) {
+                        valid = true;
                         break;
                     }
                 }
                 if (fromX > toX && fromY < toY) {
-                    if (!currentBoardStatus[fromX + x][fromY - y].getName().equals("Null")) {
-                        PopUpCoordinates.display("User Error", "Wrong move. Please try again");
+                    if (!currentBoardStatus[fromX - x][fromY + x].getName().equals("Null")) {
+                        valid = true;
                         break;
                     }
                 }
+                //tutaj jest błąd
                 if (fromX > toX && fromY > toY) {
-                    if (!currentBoardStatus[fromX + x][fromY + y].getName().equals("Null")) {
-                        PopUpCoordinates.display("User Error", "Wrong move. Please try again");
+                    if (!currentBoardStatus[fromX - x][fromY - x].getName().equals("Null")) {
+                        valid = true;
                         break;
                     }
-                } else valid = true;
+                }
             }
-        }
         return valid;
     }
 }
