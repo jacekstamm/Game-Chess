@@ -15,7 +15,7 @@ public class Queen extends Figure {
         return move && collision;
     }
 
-    public boolean validateMove(Integer fromX, Integer fromY, Integer toX, Integer toY) {
+    private boolean validateMove(Integer fromX, Integer fromY, Integer toX, Integer toY) {
         boolean valid = false;
 
         for (int x = 1; x < 8; x++) {
@@ -26,9 +26,59 @@ public class Queen extends Figure {
         return valid || (fromX.equals(toX) && !fromY.equals(toY)) || (!fromX.equals(toX) && fromY.equals(toY));
     }
 
-    public boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
+    private boolean validateCollision(Integer fromX, Integer fromY, Integer toX, Integer toY, Figure[][] currentBoardStatus) {
         boolean valid = false;
 
+        for (int x = 0; x < 8; x++) {
+            if (fromX.equals(toX) && fromY < toY) {
+                if (!currentBoardStatus[toX][fromY + x].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (fromX.equals(toX) && fromY > toY) {
+                if (!currentBoardStatus[toX][fromY - x].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (fromX > toX && fromY.equals(toY)) {
+                if (!currentBoardStatus[fromX - x][toY].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (fromX < toX && fromY.equals(toY)) {
+                if (!currentBoardStatus[fromX + x][toY].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (fromX < toX && fromY < toY) {
+                if (!currentBoardStatus[fromX + x][fromY + x].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (fromX < toX && fromY > toY) {
+                if (!currentBoardStatus[fromX + x][fromY - x].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (fromX > toX && fromY < toY) {
+                if (!currentBoardStatus[fromX - x][fromY + x].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (fromX > toX && fromY > toY) {
+                if (!currentBoardStatus[fromX - x][fromY - x].getName().equals("Null")) {
+                    valid = true;
+                    break;
+                }
+            }
+        }
         return valid;
     }
 }
